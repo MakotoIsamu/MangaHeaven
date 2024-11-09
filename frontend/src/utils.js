@@ -1,0 +1,1 @@
+export const BACKEND_URI = 'https://mangaheaven-backend.onrender.com/'
