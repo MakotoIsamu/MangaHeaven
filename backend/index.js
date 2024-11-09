@@ -9,7 +9,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'https://manga-heaven-frontend.vercel.app/',
+    origin: 'https://manga-heaven-frontend.vercel.app',
     credentials: true
 }));
 app.use(express.json());
