@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { createContext } from 'react'
-import { Backend_URI } from '../utils'
+import { BACKEND_URI } from '../utils'
 
 const AuthContext = createContext(false)
 
@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const handleAuth = async () => {
       try {
-        const response = await fetch(`${Backend_URI}/auth/checkAuth`)
+        const response = await fetch(`${BACKEND_URI}/auth/checkAuth`)
         const data = await response.json()
         setIsAuth(data)
       } catch (error) {

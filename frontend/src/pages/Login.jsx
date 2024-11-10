@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { BACKEND_URI } from '../utils';  // import BACKEND_URI from utils.js
 import backgroundImage from '../assets/706281.jpg';
 import { Link, useNavigate } from 'react-router-dom';
-import {AuthContext} from '../utils'
+import {AuthContext} from '../context/AuthContext'
 
 const Login = () => {
   const [email, setEmail] = useState('');

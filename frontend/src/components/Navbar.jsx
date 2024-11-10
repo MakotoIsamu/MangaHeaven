@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../utils';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
