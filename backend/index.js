@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: process.env.SESSION_SECRET, // use env variable for production
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: MongoStore.create({
         mongoUrl: process.env.MONGO_URI, // use env variable here too
         ttl: 24 * 60 * 60 // session expires in 1 day
