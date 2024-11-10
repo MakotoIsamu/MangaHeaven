@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../utils';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { iaAuth } = useContext(AuthContext); // Use the correct variable
 
   const handleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const menuItems = ['Manga Books', 'Posters', 'Action Figures', 'Clothing', 'Custom Order', 'Account', 'Cart', 'Login'];
+  // Define the menu items and conditionally handle the login/logout item
+  const menuItems = [
+    'Manga Books',
+    'Posters',
+    'Action Figures',
+    'Clothing',
+    'Custom Order',
+    'Account',
+    'Cart',
+    iaAuth ? 'Logout' : 'Login' // Handle auth-based menu item
+  ];
 
   // Utility function to format the menu item into a valid URL
   const formatUrl = (item) => {
@@ -26,7 +38,7 @@ const Navbar = () => {
           <Menu className="h-6 w-6" />
         </button>
         
-        <Link to='/' className="font-bold text-2xl">MANGA HEAVEN</Link>
+        <Link to="/" className="font-bold text-2xl">MANGA HEAVEN</Link>
         
         <div className="items-center gap-4 hidden sm:flex">
           <input

@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BACKEND_URI } from '../utils';  // import BACKEND_URI from utils.js
 import backgroundImage from '../assets/706281.jpg';
 import { Link, useNavigate } from 'react-router-dom';
+import {AuthContext} from '../utils'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();  // for redirecting after successful login
+  const {setIsAuth} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,8 +33,8 @@ const Login = () => {
 
       if (response.ok) {
         setMessage("Login successful");
-        // Redirect after successful login (e.g., to the home page)
-        navigate('/'); // change '/home' to your desired route
+        navigate('/');
+        setIsAuth(true)
       } else {
         setMessage(data.message || "Login failed");
       }
