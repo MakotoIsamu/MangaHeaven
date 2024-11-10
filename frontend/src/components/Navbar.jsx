@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { iaAuth } = useContext(AuthContext); // Use the correct variable
+  const { isAuth } = useContext(AuthContext); // Use the correct variable
 
   const handleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -20,7 +20,7 @@ const Navbar = () => {
     'Custom Order',
     'Account',
     'Cart',
-    iaAuth ? 'Logout' : 'Login' // Handle auth-based menu item
+    isAuth ? 'Logout' : 'Login' // Handle auth-based menu item
   ];
 
   // Utility function to format the menu item into a valid URL
