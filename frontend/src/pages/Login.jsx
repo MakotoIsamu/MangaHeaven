@@ -8,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const {setIsAuth} = useContext(AuthContext);
+  const {isAuth, setIsAuth} = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -17,6 +17,9 @@ const Login = () => {
     if (!email || !password) {
       setMessage("Both fields are required");
       return;
+    }
+    if(isAuth) {
+      return navigate('/')
     }
 
     try {

@@ -5,7 +5,7 @@ import { BACKEND_URI } from '../utils'
 const AuthContext = createContext(false)
 
 const AuthProvider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(null)
 
   useEffect(() => {
     const handleAuth = async () => {
