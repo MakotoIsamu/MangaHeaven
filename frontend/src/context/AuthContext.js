@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const handleAuth = async () => {
       try {
-        const response = await fetch(`${BACKEND_URI}/auth/checkAuth`)
+        const response = await fetch(`${BACKEND_URI}auth/checkAuth`)
         const data = await response.json()
         setIsAuth(data.isAuthenticated)
       } catch (error) {
