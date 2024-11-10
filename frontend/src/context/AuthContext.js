@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
       try {
         const response = await fetch(`${BACKEND_URI}/auth/checkAuth`)
         const data = await response.json()
-        setIsAuth(data)
+        setIsAuth(data.isAuthenticated)
       } catch (error) {
         console.error("Error checking authentication", error)
         setIsAuth(false) // Optionally handle failure to authenticate

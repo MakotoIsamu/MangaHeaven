@@ -61,9 +61,9 @@ router.post('/logout', (req, res) => {
 router.get('/checkAuth', (req, res) => {
     try {
         if (req.session.userId) {
-            return res.json(true);
+            return res.json({isAuthenticated: true});
         } else {
-            return res.json(false);
+            return res.json({isAuthenticated: false});
         }
     } catch (error) {
         res.status(500).json({ message: 'Error checking authentication' });
